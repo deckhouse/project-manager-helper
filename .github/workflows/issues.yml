@@ -12,6 +12,7 @@ jobs:
 
       - name: Get issues
         run: |
+          set +e
           _TMPDIR=$(pwd)/tmp.gh-pages.${GITHUB_RUN_ID}
           echo use ${_TMPDIR}
 
@@ -32,6 +33,11 @@ jobs:
           echo Issues dump
 
           ./scripts/issues-dump.sh > ${_TMPDIR}/issues.csv
+          
+          if [[ $? != "0" ]] ; then
+            cat ${_TMPDIR}/issues.csv
+            exit 1
+          fi
 
       - name: Cleanup
         if: always()
