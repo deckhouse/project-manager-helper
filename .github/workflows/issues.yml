@@ -7,21 +7,30 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout
         uses: actions/checkout@v2.3.1
 
-      - name: Install and Build 🔧 
+      - name: Get issues
         run: |
-          mkdir issues
-          date > issues/result
-          mkdir tmp.qwe
-          mkdir tmp.asd
+          _TMPDIR=./tmp.gh-pages.${GITHUB_RUN_ID}
+          echo use ${_TMPDIR}
+          
+          mkdir "${_TMPDIR}"
 
-      - name: Deploy 🚀
+          date > ./${_TMPDIR}/date.txt
+          ./scripts/issues_dump.sh > ./${_TMPDIR}/issues.csv
+
+      - name: Cleanup
+        if: always()
+        run: |
+          _TMPDIR=./tmp.gh-pages.${GITHUB_RUN_ID}
+          rm -rf ${_TMPDIR}
+
+      - name: Publish CSV
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: gh-pages 
-          folder: issues
+          folder: tmp.gh-pages.${{ github.run_id }}
           single-commit: true
 
 
