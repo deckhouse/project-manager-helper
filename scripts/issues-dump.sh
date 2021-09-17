@@ -7,14 +7,14 @@ if [[ -z ${REST_API_GITHUB_TOKEN} ]] ; then
 fi
 
 # Settings.
-REPO=diafour/deckhouse
-PAGE_SIZE=5
+REPO=deckhouse/deckhouse
+PAGE_SIZE=32
 
 # Query.
 QUERY_TMPL=$(cat <<'EOF'
 query {
   repository (
-    owner:"diafour",
+    owner:"deckhouse",
     name:"deckhouse"
   ) {
     issues(
