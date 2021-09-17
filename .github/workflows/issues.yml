@@ -1,0 +1,27 @@
+name: Publish
+on: 
+  push:
+  schedule:
+    cron: "/1 * * * *"
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+
+      - name: Install and Build 🔧 
+        run: |
+          mkdir issues
+          date > issues/result
+          mkdir tmp.qwe
+          mkdir tmp.asd
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages 
+          folder: issues
+          single-commit: true
+
+
