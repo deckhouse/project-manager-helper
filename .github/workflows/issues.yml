@@ -31,12 +31,6 @@ jobs:
             exit 1
           fi
 
-      - name: Cleanup
-        if: always()
-        run: |
-          _TMPDIR=./tmp.gh-pages.${GITHUB_RUN_ID}
-          rm -rf ${_TMPDIR}
-
       - name: Publish CSV
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
@@ -44,4 +38,9 @@ jobs:
           folder: tmp.gh-pages.${{ github.run_id }}
           single-commit: true
 
+      - name: Cleanup
+        if: always()
+        run: |
+          _TMPDIR=./tmp.gh-pages.${GITHUB_RUN_ID}
+          rm -rf ${_TMPDIR}
 
