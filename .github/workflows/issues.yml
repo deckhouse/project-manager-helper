@@ -18,7 +18,7 @@ jobs:
           mkdir "${_TMPDIR}"
 
           date > ./${_TMPDIR}/date.txt
-          ./scripts/issues_dump.sh > ./${_TMPDIR}/issues.csv
+          ./scripts/issues-dump.sh > ./${_TMPDIR}/issues.csv
 
       - name: Cleanup
         if: always()
