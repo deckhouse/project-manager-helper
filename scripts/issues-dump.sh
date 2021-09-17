@@ -1,6 +1,9 @@
 #!/bin/bash
 
 # Get info for all issues in Github repo.
+# https://docs.github.com/en/graphql/reference/objects#repository
+# 
+
 if [[ -z ${REST_API_GITHUB_TOKEN} ]] ; then
   echo REST_API_GITHUB_TOKEN is not set
   exit 1
@@ -14,8 +17,8 @@ PAGE_SIZE=32
 QUERY_TMPL=$(cat <<'EOF'
 query {
   repository (
-    owner:"deckhouse",
-    name:"deckhouse"
+    owner:"##OWNER##",
+    name:"##NAME##"
   ) {
     issues(
       ##AFTER_CURSOR##
@@ -151,16 +154,26 @@ api_request() {
 # Substitute parameters in QUERY_TMLP
 # $1 - endCursor from response to continue pagination or an empty string to start pagination.
 prepare_query() {
+  # A first part in REPO string 'owner/name'.
+  owner=${REPO%/*}
+  # A last part in REPO string 'owner/name'.
+  name=${REPO#*/}
+  # Cursor to continue pagination if needed.
   cursor="$1"
   if [[ -n $cursor ]] ; then
     cursor="after\\:\\ \"$cursor\","
   fi
-  prepared=$(echo "$QUERY_TMPL" | sed "s/\#\#AFTER_CURSOR\#\#/$cursor/" | sed s/\#\#PAGE_SIZE\#\#/$PAGE_SIZE/ )
+  
+  # Render query template.
+  prepared=$(echo "$QUERY_TMPL" | sed "s/\#\#AFTER_CURSOR\#\#/$cursor/" | sed s/\#\#PAGE_SIZE\#\#/$PAGE_SIZE/ | sed s/\#\#OWNER\#\#/$owner/ | sed s/\#\#NAME\#\#/$name/ )
+
+  # Return JSON suitable for Github API.
   jq -n --arg query "${prepared}" '{"query": $query }' -r
 }
 
 
-
+# Run graphql query several times until no pages left.
+# Note: Github limits page size to 100.
 loop_dump() {
   HAS_NEXT_PAGE="true"
   END_CURSOR=
@@ -194,11 +207,11 @@ loop_dump() {
   done
 }
 
-# convert json to csv:
-# labels: get labels with "type/" prefix
-# assignees: join logins with a comma
-# sum "positive" reactions
-# sum "negative" reactions
+# Convert JSON to csv:
+# - labels: get labels with "type/" prefix
+# - assignees: join logins with a comma
+# - sum "positive" reactions
+# - sum "negative" reactions
 convert_to_csv() {
   jq -r '[
     .number,
