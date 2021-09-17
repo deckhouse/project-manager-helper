@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: '*/1 * * * *'
 jobs:
-  build-and-deploy:
+  dump-and-publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -12,13 +12,22 @@ jobs:
 
       - name: Get issues
         run: |
-          _TMPDIR=./tmp.gh-pages.${GITHUB_RUN_ID}
+          _TMPDIR=$(pwd)/tmp.gh-pages.${GITHUB_RUN_ID}
           echo use ${_TMPDIR}
+
+          ls -la ${_TMPDIR}
+          
+          echo mkdir
           
           mkdir -p ${_TMPDIR}
 
-          date > ./${_TMPDIR}/date.txt
-          ./scripts/issues-dump.sh > ./${_TMPDIR}/issues.csv
+          echo date
+
+          date | tee ${_TMPDIR}/date.txt
+
+          echo Issues dump
+
+          ./scripts/issues-dump.sh > ${_TMPDIR}/issues.csv
 
       - name: Cleanup
         if: always()
