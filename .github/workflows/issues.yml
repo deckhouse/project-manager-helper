@@ -15,7 +15,7 @@ jobs:
           _TMPDIR=./tmp.gh-pages.${GITHUB_RUN_ID}
           echo use ${_TMPDIR}
           
-          mkdir "${_TMPDIR}"
+          mkdir -p ${_TMPDIR}
 
           date > ./${_TMPDIR}/date.txt
           ./scripts/issues-dump.sh > ./${_TMPDIR}/issues.csv
