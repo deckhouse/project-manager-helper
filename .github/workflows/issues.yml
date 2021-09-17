@@ -2,7 +2,7 @@ name: Publish
 on: 
   push:
   schedule:
-    - cron: "/1 * * * *"
+    - cron: '*/1 * * * *'
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
