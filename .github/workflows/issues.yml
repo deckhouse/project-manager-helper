@@ -15,7 +15,11 @@ jobs:
           _TMPDIR=$(pwd)/tmp.gh-pages.${GITHUB_RUN_ID}
           echo use ${_TMPDIR}
 
-          ls -la ${_TMPDIR}
+
+          ls -la $(pwd)
+          ls -lad $(pwd)
+
+          ls -la ${_TMPDIR} || true
           
           echo mkdir
           
