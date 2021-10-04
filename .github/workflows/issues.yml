@@ -24,7 +24,7 @@ jobs:
 
           echo Run issues dump.
 
-          time ./scripts/issues-dump.sh > ${_TMPDIR}/issues.csv
+          time ./scripts/issues-dump.sh ${_TMPDIR}/issues.csv
           
           if [[ $? != "0" ]] ; then
             cat ${_TMPDIR}/issues.csv

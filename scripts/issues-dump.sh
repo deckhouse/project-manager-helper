@@ -43,6 +43,7 @@ query {
           }
           milestone {
             number
+            title
             url
           }  
           createdAt
@@ -213,6 +214,9 @@ loop_dump() {
 # - sum "positive" reactions
 # - sum "negative" reactions
 convert_to_csv() {
+  cat <<EOF
+"Issue #","Title","State","Author","Assignees","Type labels","Milestone","Created","Commented","Total comments","Positive reactions","Negative reactions"
+EOF
   jq -r '[
     .number,
     .title,
@@ -220,20 +224,38 @@ convert_to_csv() {
     .author.login,
     (.assignees.nodes | map(.login) | join(",") ),
     (.labels.nodes|map(select(.name|startswith("type/"))) | map(.name | sub("^type/"; "")) | join(",")),
-    .milestone.number,
-    .createdAt,
-    (.lastComment.nodes | first //{} | .createdAt),
+    .milestone.title,
+    (.createdAt //"" | sub("T.*"; "")),
+    (.lastComment.nodes | first //{} | .createdAt //"" | sub("T.*"; "")),
     .comments.totalCount,
-    ([.react_thumbs_down.totalCount, .react_confused.totalCount] | add),
-    ([.react_thumbs_up.totalCount, .react_heart.totalCount, .react_hooray.totalCount, .react_rocket.totalCount] | add)
-   ] 
+    ([.react_thumbs_up.totalCount, .react_heart.totalCount, .react_hooray.totalCount, .react_rocket.totalCount] | add),
+    ([.react_thumbs_down.totalCount, .react_confused.totalCount] | add)
+   ]
   | @csv'
 }
 
-main() {
-  apiResp=$(mktemp $TMPDIR/api-resp-XXX)
-  loop_dump | tee ${apiResp} | convert_to_csv
+# Print issues count and the latest issue number.
+print_info() {
+  jq -s -r '{"len": length|tostring , "last": .[-1].number|tostring} | "TOTAL: " + .len + "\nLAST ISSUE: #" + .last'
 }
 
+main() {
+  case "$1" in
+  dump)
+    loop_dump > "$2"
+    ;;
+  info)
+    cat "$2" | print_info
+    ;;
+  convert)
+    cat "$2" | convert_to_csv
+    ;;
+  *)
+    apiResp=$(mktemp $TMPDIR/api-resp-XXX)
+    loop_dump | tee ${apiResp} | convert_to_csv > "$1"
+    cat ${apiResp} | print_info
+    ;;
+  esac
+}
 
 main "$@"
