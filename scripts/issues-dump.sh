@@ -4,6 +4,8 @@
 # https://docs.github.com/en/graphql/reference/objects#repository
 # 
 
+set -eo pipefail
+
 if [[ -z ${REST_API_GITHUB_TOKEN} ]] ; then
   echo REST_API_GITHUB_TOKEN is not set
   exit 1
@@ -135,23 +137,15 @@ api_request() {
   )
   CURL_EXIT=$?
 
-  echo CURL_ERROR
-  cat $curlError
-  echo CURL_HEADER
-  cat $curlHeaders
-  echo CURL_RESP
-  cat $curlResponse
-  echo ================
-
   # Parse headers to an object, parse response as json. Return json with exit code,
   # http status, curl error, headers and response.
   jq -n \
     --arg status "${HTTP_STATUS}" \
     --arg headers "$(sed 's/\r// ; /^$/d' $curlHeaders 2>/dev/null )" \
-    --argfile response "${curlResponse}" \
-    --argfile error "${curlError}" \
+    --rawfile response "${curlResponse}" \
+    --rawfile error "${curlError}" \
     --arg exit "${CURL_EXIT}" \
-  '{ status: $status,
+  '{ status: $status|tostring,
      response: ($response| try (.|fromjson) catch $response ),
      headers: ( $headers | 
                 split("\n") | 
@@ -159,9 +153,10 @@ api_request() {
                 map( . |= (split(": ") | {(.[0]) : .[1]}) ) | 
                 add
               ),
-     error: $error,
-     exit: $exit
-   }' | tee "${2}"
+     error: $error|tostring,
+     exit: $exit|tostring
+   }' > "${2}"
+
 }
 
 # Substitute parameters in QUERY_TMLP
@@ -197,7 +192,7 @@ loop_dump() {
     api_request "${query}" "${apiResponse}"
 
     # Exit on request error
-    read -r code error <<< "$(jq -n --argfile root "${apiResponse}" '$root.exit + " " + $root.error' -r )"
+    read -r code error <<< "$(jq -r '.exit + " " + .error' "${apiResponse}")"
     #echo "code=$code, error=$error"
     if [[ $code != "0" ]] ; then
       echo "curl exited with code $code: $error"
@@ -205,18 +200,18 @@ loop_dump() {
     fi
 
     # Exit on query error
-    hasErrors="$(jq -n --argfile root "${apiResponse}" -r '$root.response | has("errors") | tostring')"
+    hasErrors="$(jq -r '.response | has("errors") | tostring' "${apiResponse}")"
     if [[ $hasErrors == "true" ]] ; then
-      errors="$(jq -n --argfile root "${apiResponse}" -r '$root.response | .errors//[] | map(.message) | add')"
+      errors="$(jq -r '.response | .errors//[] | map(.message) | add' "${apiResponse}")"
       echo "Github API error: ${errors}"
       exit 1
     fi
 
     # Get pageInfo: hasNextPage and a cursor to continue pagination.
-    read -r HAS_NEXT_PAGE END_CURSOR <<< "$(jq -n --argfile root "${apiResponse}" '$root.response.data.repository.issues.pageInfo | (.hasNextPage|tostring) + " " + .endCursor' -r)"
+    read -r HAS_NEXT_PAGE END_CURSOR <<< "$(jq -r '.response.data.repository.issues.pageInfo | (.hasNextPage|tostring) + " " + .endCursor' "${apiResponse}")"
 
     # Print issues.
-    jq -n --argfile root "${apiResponse}" '$root.response.data.repository.issues.nodes[]' -c
+    jq -c '.response.data.repository.issues.nodes[]' "${apiResponse}"
   done
 }
 
