@@ -140,8 +140,8 @@ api_request() {
   jq -n \
     --arg status "${HTTP_STATUS}" \
     --arg headers "$(sed 's/\r// ; /^$/d' $curlHeaders 2>/dev/null )" \
-    --arg response "$(cat $curlResponse)" \
-    --arg error "$(cat $curlError)" \
+    --argfile response "${curlResponse}" \
+    --argfile error "${curlError}" \
     --arg exit "${CURL_EXIT}" \
   '{ status: $status,
      response: ($response| try (.|fromjson) catch $response ),
@@ -153,7 +153,7 @@ api_request() {
               ),
      error: $error,
      exit: $exit
-   }'
+   }' > "${2}"
 }
 
 # Substitute parameters in QUERY_TMLP
@@ -184,13 +184,12 @@ loop_dump() {
   HAS_NEXT_PAGE="true"
   END_CURSOR=
   while [[ "${HAS_NEXT_PAGE}" != "false" ]] ; do
+    apiResponse=$(mktemp $TMPDIR/loop-dump-XXXXX)
     query=$(prepare_query ${END_CURSOR})
-    api_resp=$(api_request "${query}")
-    #echo $query
-    #echo ${api_resp}
-    
+    api_request "${query}" "${apiResponse}"
+
     # Exit on request error
-    read -r code error <<< "$(jq -n --argjson root "${api_resp}" '$root.exit + " " + $root.error' -r )"
+    read -r code error <<< "$(jq -n --argfile root "${apiResponse}" '$root.exit + " " + $root.error' -r )"
     #echo "code=$code, error=$error"
     if [[ $code != "0" ]] ; then
       echo "curl exited with code $code: $error"
@@ -198,18 +197,18 @@ loop_dump() {
     fi
 
     # Exit on query error
-    hasErrors="$(jq -n --argjson root "${api_resp}" -r '$root.response | has("errors") | tostring')"
+    hasErrors="$(jq -n --argfile root "${apiResponse}" -r '$root.response | has("errors") | tostring')"
     if [[ $hasErrors == "true" ]] ; then
-      errors="$(jq -n --argjson root "${api_resp}" -r '$root.response | .errors//[] | map(.message) | add')"
+      errors="$(jq -n --argfile root "${apiResponse}" -r '$root.response | .errors//[] | map(.message) | add')"
       echo "Github API error: ${errors}"
       exit 1
     fi
 
     # Get pageInfo: hasNextPage and a cursor to continue pagination.
-    read -r HAS_NEXT_PAGE END_CURSOR <<< "$(jq -n --argjson root "${api_resp}" '$root.response.data.repository.issues.pageInfo | (.hasNextPage|tostring) + " " + .endCursor' -r)"
+    read -r HAS_NEXT_PAGE END_CURSOR <<< "$(jq -n --argfile root "${apiResponse}" '$root.response.data.repository.issues.pageInfo | (.hasNextPage|tostring) + " " + .endCursor' -r)"
 
     # Print issues.
-    jq -n --argjson root "${api_resp}" '$root.response.data.repository.issues.nodes[]' -c
+    jq -n --argfile root "${apiResponse}" '$root.response.data.repository.issues.nodes[]' -c
   done
 }
 
