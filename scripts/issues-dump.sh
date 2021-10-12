@@ -24,8 +24,7 @@ query {
   ) {
     issues(
       ##AFTER_CURSOR##
-      first: ##PAGE_SIZE##,
-      orderBy: { field: CREATED_AT, direction: DESC}
+      first: ##PAGE_SIZE##
     ) {
       nodes {
           id
@@ -254,7 +253,7 @@ EOF
 
 # Print issues count and the latest issue number.
 print_info() {
-  jq -s -r '{"len": length|tostring , "last": .[-1].number|tostring} | "TOTAL: " + .len + "\nLAST ISSUE: #" + .last'
+  jq -s -r 'sort_by(.number) | {"len": length|tostring , "last": .[-1].number|tostring} | "TOTAL: " + .len + "\nLAST ISSUE: #" + .last'
 }
 
 main() {
