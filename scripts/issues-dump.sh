@@ -135,6 +135,14 @@ api_request() {
   )
   CURL_EXIT=$?
 
+  echo CURL_ERROR
+  cat $curlError
+  echo CURL_HEADER
+  cat $curlHeaders
+  echo CURL_RESP
+  cat $curlResponse
+  echo ================
+
   # Parse headers to an object, parse response as json. Return json with exit code,
   # http status, curl error, headers and response.
   jq -n \
@@ -153,7 +161,7 @@ api_request() {
               ),
      error: $error,
      exit: $exit
-   }' > "${2}"
+   }' | tee "${2}"
 }
 
 # Substitute parameters in QUERY_TMLP
