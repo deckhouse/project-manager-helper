@@ -11,7 +11,7 @@ fi
 
 # Settings.
 REPO=deckhouse/deckhouse
-PAGE_SIZE=32
+PAGE_SIZE=100
 
 # Query.
 QUERY_TMPL=$(cat <<'EOF'
@@ -23,7 +23,7 @@ query {
     issues(
       ##AFTER_CURSOR##
       first: ##PAGE_SIZE##,
-      orderBy: { field: CREATED_AT, direction: ASC}
+      orderBy: { field: CREATED_AT, direction: DESC}
     ) {
       nodes {
           id
@@ -31,12 +31,12 @@ query {
           title
           state
           author{ login }
-          assignees (first: 10) {
+          assignees (first: 100) {
             nodes {
               login
             }
           }
-          labels (first: 20) {
+          labels (first: 100) {
             nodes {
               name
             }
@@ -46,7 +46,14 @@ query {
             title
             url
           }  
+
           createdAt
+
+          participants(first: 100){
+            nodes {
+              login
+            }
+          }
           lastComment: comments(last:1){
             nodes{
               createdAt
@@ -55,9 +62,14 @@ query {
           comments {
             totalCount
           }
-          reactions {
+
+          reactions(first: 100) {
             totalCount
+            nodes {
+              user{ login }
+            }
           }
+
           react_thumbs_down: reactions(content: THUMBS_DOWN ) {
             totalCount
           }
@@ -75,14 +87,6 @@ query {
             totalCount
           }
           react_rocket: reactions(content: ROCKET ) {
-            totalCount
-          }
-
-
-          react_laugh: reactions(content: LAUGH ) {
-            totalCount
-          }
-          react_eyes: reactions(content: EYES ) {
             totalCount
           }
 
@@ -174,7 +178,8 @@ prepare_query() {
 
 
 # Run graphql query several times until no pages left.
-# Note: Github limits page size to 100.
+# '##' parameters are substituted with proper values.
+# Note: Github API defines maximum page size as 100.
 loop_dump() {
   HAS_NEXT_PAGE="true"
   END_CURSOR=
@@ -209,15 +214,25 @@ loop_dump() {
 }
 
 # Convert JSON to csv:
-# - labels: get labels with "type/" prefix
-# - assignees: join logins with a comma
-# - sum "positive" reactions
-# - sum "negative" reactions
+# 1. Issue number as seen in url
+# 2. Issue title
+# 3. Issue state: OPEN, CLOSED
+# 4. Author's login
+# 5. Assignees logins separated by comma.
+# 6. Labels with "type/" prefix separated by comma (prefix is ommited).
+# 7. Milestone title.
+# 8. Created at date in yyyy-mm-dd format.
+# 9. Date of the latest comment in yyyy-mm-dd format.
+# 10. Total number of comments.
+# 11. Number of positive reactions (THUMB_UP, HEART, HOORAY, ROCKET).
+# 12. Number of negative reactions (THUMB_DOWN, CONFUSED).
+# 13. Number of participants: unique logins of users placed a comment or left a reaction on issue.
 convert_to_csv() {
   cat <<EOF
-"Issue #","Title","State","Author","Assignees","Type labels","Milestone","Created","Commented","Total comments","Positive reactions","Negative reactions"
+"Issue #","Title","State","Author","Assignees","Type labels","Milestone","Created","Commented","Total comments","Positive reactions","Negative reactions","Participants"
 EOF
-  jq -r '[
+  # Sort issues by number in ascending order before producing CSV.
+  jq -s -r 'sort_by(.number)[] | [
     .number,
     .title,
     .state,
@@ -229,7 +244,8 @@ EOF
     (.lastComment.nodes | first //{} | .createdAt //"" | sub("T.*"; "")),
     .comments.totalCount,
     ([.react_thumbs_up.totalCount, .react_heart.totalCount, .react_hooray.totalCount, .react_rocket.totalCount] | add),
-    ([.react_thumbs_down.totalCount, .react_confused.totalCount] | add)
+    ([.react_thumbs_down.totalCount, .react_confused.totalCount] | add),
+    ((.participants.nodes + .reactions.nodes) | map(.login//.user.login) | unique | length)
    ]
   | @csv'
 }
