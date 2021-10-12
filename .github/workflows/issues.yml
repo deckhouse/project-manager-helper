@@ -39,6 +39,7 @@ jobs:
           single-commit: true
           token: ${{ secrets.ROBOT_TOKEN }}
           git-config-name: "deckhouse-BOaTswain"
+          git-config-email: ${{ secrets.GIT_EMAIL }}
 
       - name: Cleanup
         if: always()
