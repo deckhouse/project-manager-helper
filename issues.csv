@@ -1,0 +1,313 @@
+"Issue #","Title","State","Author","Assignees","Type labels","Milestone","Created","Commented","Total comments","Positive reactions","Negative reactions","Participants"
+9,"Error in `040-node-manager/hooks/get_crds.go` hook","CLOSED","Nitive","konstantin-axenov","",,"2021-07-09","2021-07-09",4,0,0,3
+14,"Scaleway cloud provider support","OPEN","imcitius","","feature-request",,"2021-07-28","",0,10,0,11
+15,"Linode cloud provider support","OPEN","imcitius","","feature-request",,"2021-07-28","",0,5,0,6
+16,"Add centos8/el8 support, including RockyLinux/AlmaLinux/OracleLinux","OPEN","admin5-southbridge","","feature-request",,"2021-07-28","",0,4,0,6
+17,"Add Debian support","OPEN","imcitius","","feature-request",,"2021-07-28","",0,11,0,11
+18,"Add ability to specify custom email for ClusterIssuers","CLOSED","Nitive","","",,"2021-07-28","2021-07-29",2,0,0,3
+19,"Opennebula support","OPEN","CRASH-Tech","","feature-request",,"2021-07-28","",0,2,0,3
+20,"Digital Ocean Support","OPEN","deman4ik","","feature-request",,"2021-07-28","",0,13,0,14
+21,"Civo cloud provider support","OPEN","saiyam1814","","feature-request",,"2021-07-29","",0,0,0,2
+22,"Proxmox VE support","OPEN","cs8w","","feature-request",,"2021-07-29","",0,8,0,10
+23,"Hetzner Cloud Support","OPEN","7zip-dev","","feature-request",,"2021-07-29","",0,22,0,23
+24,"ARM64 support","OPEN","diafour","","feature-request",,"2021-07-29","",0,14,0,18
+25,"Failed to discover node_ip but it's required for cluster bootstrap or static cluster nodes","CLOSED","Born2Bake","","",,"2021-07-29","2021-07-29",2,0,0,1
+26," Bad sudo password, exiting. TODO handle this correctly.","CLOSED","mortician2010","","",,"2021-07-30","2021-07-30",2,0,0,2
+27,"Failed to stop kubelet.service: Unit kubelet.service not loaded.","OPEN","mortician2010","","question",,"2021-07-30","2021-08-02",8,2,0,5
+28,"Oracle Cloud Support","OPEN","7zip-dev","","feature-request",,"2021-07-31","",0,8,0,9
+29,"Consider running kubernetes-api-proxy as a static pod","OPEN","nabokihms","","enhancement",,"2021-08-01","2021-09-08",1,1,0,2
+30,"Cluster operators (prometheus-operator) should not conflict with user-deployed operators","CLOSED","zuzzas","nabokihms","enhancement",,"2021-08-03","2021-09-01",1,2,0,5
+32,"No extended monitoring is deployed on EE cluster (alpha channel)","CLOSED","Nitive","","bug",,"2021-08-04","2021-08-13",2,0,0,2
+34,"Alerts are too sensitive when vanilla Alertmanager is used","OPEN","Nitive","","enhancement",,"2021-08-06","2021-08-06",1,3,0,4
+35,"Upmeter scheduler monitoring shouldn't fail on pod deletion timeout","CLOSED","Nitive","shvgn","",,"2021-08-08","",0,0,0,2
+40,"Bootstrap script error with yandex cloud provider","CLOSED","drudrum","","",,"2021-08-10","2021-08-11",3,0,0,3
+41,"[dhctl] Properly version","OPEN","zuzzas","","enhancement",,"2021-08-11","",0,0,0,2
+43,"[terraform-manager] exporter does not catch a vm status","OPEN","nabokihms","","enhancement",,"2021-08-16","",0,0,0,1
+44,"[go_lib] issue new certs on domain change ","CLOSED","nabokihms","nabokihms","",,"2021-08-18","2021-11-11",1,0,0,1
+45,"[cloud-provider-yandex] Cloud controller manager does not delete a target group for LB","CLOSED","nabokihms","31337Ghost","bug",,"2021-08-19","2021-08-19",2,0,0,3
+46,"smoke-mini prevents cluster-autoscaler downscale","OPEN","yalosev","","bug",,"2021-08-20","2021-12-14",1,1,0,4
+47,"[monitoring-kubernetes-control-plane] Control plane proxy hangs","OPEN","konstantin-axenov","","bug",,"2021-08-20","",0,0,0,1
+48,"[ingress-nginx] Support auto reload for Geoip2","OPEN","nabokihms","","enhancement",,"2021-08-20","",0,0,0,1
+49,"CII Best Practices Badge Program","OPEN","nabokihms","","enhancement",,"2021-08-20","",0,0,0,1
+50,"[global] Provide robots.txt for all deckhouse components","OPEN","nabokihms","","enhancement",,"2021-08-20","",0,0,0,1
+51,"[user-authn] Add ability to disable kubeconfig-generator for published API","OPEN","nabokihms","","enhancement",,"2021-08-20","2021-12-09",2,0,0,1
+52,"[dhctl] Converge does not update the node template settings for a node group","OPEN","nabokihms","","bug",,"2021-08-20","",0,0,0,1
+53,"[prometheus] Option to add extra labels to alerts","OPEN","nabokihms","","enhancement",,"2021-08-20","",0,0,0,1
+54,"[upmeter] Deckhouse queue stuck after change of default storage class","CLOSED","konstantin-axenov","shvgn","bug","v1.26.0","2021-08-20","2021-10-19",1,0,0,3
+55,"[testing] Check that Deckhouse meets security standards from NSA and CISA guidance","OPEN","nabokihms","","enhancement",,"2021-08-23","2021-09-30",2,1,0,2
+56,"[global] Number of the serviceaccount stale tokens is increasing","OPEN","nabokihms","","refactoring",,"2021-08-24","",0,0,0,1
+57,"[global] kube-rbac-proxy tls handshake error","OPEN","nabokihms","","bug",,"2021-08-24","",0,0,0,1
+58,"[candi] Add ability to flexible nodes configuration","OPEN","nabokihms","yalosev","enhancement","v1.29.0","2021-08-24","2021-11-22",1,0,0,5
+59,"[prometheus] Some container restart status for pods during deploy","CLOSED","nabokihms","nabokihms","bug","v1.27.0","2021-08-24","2021-11-15",2,6,0,9
+60,"[cloud-provider-*] ReclaimPolicy for storageClass","OPEN","nabokihms","","enhancement",,"2021-08-24","2021-12-14",2,0,0,3
+61,"[bashible] kubernetes-api-proxy checks for new hosts too quick","OPEN","nabokihms","","enhancement",,"2021-08-24","",0,0,0,1
+62,"[ingress-nginx] Helm intersections","CLOSED","nabokihms","yalosev","bug","v1.25.0","2021-08-24","2021-09-08",1,0,0,2
+63,"[monitoring-kubernetes] Node PodCidr cluster capacity alert","CLOSED","nabokihms","RomanenkoDenys","enhancement","v1.26.0","2021-08-24","2021-09-20",1,0,0,2
+64,"[dhctl] When converging control-plane nodes wait until control-plane-manager becomes ready","CLOSED","nabokihms","","enhancement",,"2021-08-24","2021-11-09",1,0,0,2
+65,"[cni-flannel] podNetworkMode migration","CLOSED","nabokihms","vitaliy-sn","enhancement",,"2021-08-24","2021-09-27",1,0,0,3
+66,"[upmeter] Server side localization","OPEN","nabokihms","","refactoring",,"2021-08-24","",0,0,0,1
+67,"[monitoring-kubernetes-control-plane] Use kube-rbac-proxy instead of kube-ca-auth-proxy","OPEN","nabokihms","","refactoring",,"2021-08-24","",0,0,0,1
+68,"[candi] Changing defaultCri in ClusterConfiguration is destructive for single master clusters","CLOSED","nabokihms","RomanenkoDenys","enhancement,good-first-issue","v1.26.0","2021-08-24","2021-10-19",1,0,0,2
+69,"[dhctl] Plain logboek logs in bashible steps","CLOSED","nabokihms","name212","refactoring","v1.26.0","2021-08-24","2021-09-17",1,0,0,3
+70,"[user-authn] DexAuthenticator allows to deploy registry secret to any namespace","CLOSED","nabokihms","","bug",,"2021-08-24","2021-12-08",1,0,0,1
+71,"[monitoring-kubernetes] Events exporter","CLOSED","nabokihms","nabokihms","enhancement","v1.27.0","2021-08-24","2021-11-18",2,13,0,15
+72,"[ingress-nginx] Automatically collect cloudflare and qurator addresses","OPEN","nabokihms","","enhancement",,"2021-08-24","",0,0,0,1
+73,"[cloud-provider-yandex] Add placement_policy spec support","OPEN","nabokihms","","enhancement",,"2021-08-24","",0,0,0,1
+74,"image-availability-exporter alerts get stuck for up to an hour","OPEN","zuzzas","","bug",,"2021-08-24","",0,0,0,1
+75,"Add a linter that validates exported fields in a FilterFunc in Go hooks","CLOSED","zuzzas","yalosev","enhancement","v1.26.0","2021-08-24","2021-09-20",1,0,0,3
+76,"Provide a way to block access to kubeconfig generator to unauthorized users","CLOSED","zuzzas","","feature-request",,"2021-08-24","2021-08-24",1,0,0,2
+77,"Manage ingress-nginx cipher directly and do not rely on defaults","OPEN","zuzzas","","enhancement",,"2021-08-24","2021-08-24",1,0,0,2
+78,"[node-manager] Rolling update strategy for disruptive updates","OPEN","nabokihms","","enhancement",,"2021-08-24","",0,1,0,2
+79,"[user-authn] Do not deploy dex without users/dexproviders in cluster","CLOSED","nabokihms","yalosev","enhancement","v1.25.0","2021-08-24","2021-09-02",1,0,0,2
+80,"[global] OrphanSecrets automatic cleanup","OPEN","nabokihms","31337Ghost","enhancement","v1.29.0","2021-08-25","2021-09-18",2,2,0,3
+81,"[node-exporter] kubelet-eviction-exporter is not getting killed","CLOSED","nabokihms","31337Ghost","bug","v1.25.0","2021-08-25","2021-09-09",1,0,0,2
+82,"[ingress-nginx] provide proper openapi-test-cases.yaml","OPEN","nabokihms","","refactoring",,"2021-08-25","",0,0,0,1
+83,"[bashible] get rid of message of the day (motd)","OPEN","nabokihms","","",,"2021-08-25","",0,1,0,2
+84,"[bashible] Duplicate repositories on CentOS","CLOSED","nabokihms","","",,"2021-08-25","2021-09-02",1,0,0,3
+85,"[node-manager] NodeUser multiple ssh keys","OPEN","nabokihms","","enhancement",,"2021-08-25","",0,0,0,1
+86,"[flant-integration] check kubeall hosts availability and alert on fail","OPEN","nabokihms","","enhancement",,"2021-08-25","",0,0,0,1
+87,"[deckhouse] alert if config validation fails","OPEN","nabokihms","","feature-request,good-first-issue",,"2021-08-25","",0,0,0,1
+88,"[kube-dns] kube-rbac-proxy hangs with the broken pipe error","CLOSED","nabokihms","","",,"2021-08-25","2021-09-09",1,0,0,1
+89,"[global] use git commits when building applications from the source code","OPEN","nabokihms","","enhancement",,"2021-08-25","",0,0,0,1
+90,"[cloud-provider-aws] Add graviton nodes availability ","OPEN","pod2metra","","feature-request",,"2021-08-27","2021-08-27",1,3,0,5
+91,"[terraform-state-exporter] sends invalid metrics after delete static NodeGroup","CLOSED","vitaliy-sn","name212","bug","v1.25.0","2021-08-27","2021-09-08",2,2,0,6
+92,"[dhctl] Accept bastion host address from terraform","CLOSED","nabokihms","name212","enhancement","v1.26.0","2021-08-30","2021-10-21",1,0,0,4
+93,"Add Validating Admission Webhook to operator-prometheus module","CLOSED","zuzzas","31337Ghost","enhancement","v1.26.0","2021-08-31","2021-09-27",1,0,0,5
+94,"[extended-monitoring] lazy reaction on the new namespace annotated","CLOSED","31337Ghost","nabokihms","bug",,"2021-08-31","2021-08-31",1,0,0,2
+95,"[dhctl] converge of control-plane nodes requires manual actions if a node needs to be recreated","OPEN","31337Ghost","","bug",,"2021-08-31","",0,0,0,2
+96,"[global] Add lintignore files support for modules","OPEN","shvgn","","feature-request",,"2021-08-31","",0,0,0,2
+97,"""remove_csi_taints"" did not execute even though it ought to","OPEN","zuzzas","","bug",,"2021-08-31","",0,0,0,1
+98,"[control-plane-manager] Add ability to encrypt etcd data","OPEN","nabokihms","","feature-request",,"2021-09-01","",0,0,0,1
+99,"[prometheus] prometheus_disk hangs on kubectl execution","OPEN","nabokihms","","bug",,"2021-09-01","",0,0,0,1
+100,"[cloud-provider-aws] Check ami is available in desired availability zone","OPEN","nabokihms","","enhancement",,"2021-09-01","",0,0,0,1
+101,"[global] check images of new versions for used components","OPEN","nabokihms","","feature-request",,"2021-09-01","",0,0,0,1
+102,"[bashible] Alert about changed hostname on a node","OPEN","nabokihms","","enhancement",,"2021-09-01","",0,0,0,1
+103,"[ingress-nginx] Add cache feature","OPEN","nabokihms","","enhancement",,"2021-09-01","",0,16,0,15
+104,"[dhctl] Ask ssh-key password only once if not necessary","OPEN","nabokihms","","enhancement",,"2021-09-01","",0,0,0,1
+105,"[user-authn] Proper readiness-probe for DexAuthenticator","CLOSED","nabokihms","name212","enhancement","v1.25.0","2021-09-01","2021-09-10",1,0,0,4
+106,"[prometheus] Preserve time-range on switching between dashboards from the Main folder","CLOSED","nabokihms","shvgn","enhancement","v1.25.0","2021-09-01","2021-09-08",2,0,0,4
+107,"[node-manager] nodeSelector for NodeUser","OPEN","nabokihms","","feature-request",,"2021-09-01","",0,0,0,1
+108,"[prometheus] Throttling graph on Namespaces dashboard has incorrect values","CLOSED","nabokihms","name212","bug","v1.25.0","2021-09-01","2021-09-09",1,0,0,4
+109,"[user-authn] Prefix groups from oidc","OPEN","nabokihms","","enhancement",,"2021-09-01","",0,0,0,1
+110,"[node-manager] checksum for each Machine object","OPEN","nabokihms","","enhancement",,"2021-09-01","",0,0,0,1
+111,"[cloud-provider-*] Unify disk size","OPEN","nabokihms","31337Ghost","enhancement",,"2021-09-01","",0,0,0,4
+112,"[control-plane-manager] No root certificates for kube-apiserver on CentOS","CLOSED","nabokihms","RomanenkoDenys","bug","v1.26.0","2021-09-01","2021-09-20",1,0,0,3
+113,"[dhctl] Check that conrtol-plane nodes are Ready more precisely","OPEN","nabokihms","name212","enhancement","v1.29.0","2021-09-01","2021-09-20",1,0,0,3
+114,"[control-plane-manager][dhctl] Rename master node group to control-plane","OPEN","nabokihms","","refactoring",,"2021-09-01","",0,0,0,1
+115,"[prometheus] Add support for remote_write.tls_config.insecure_skip_verify","CLOSED","nabokihms","31337Ghost","enhancement","v1.25.0","2021-09-01","2021-09-09",1,0,0,3
+116,"Admin Role does not have access to ResourceQuotas","CLOSED","zuzzas","gyrter","feature-request","v1.25.0","2021-09-01","",0,0,0,3
+117,"[prometheus] Add alert about prometheus-longterm scrape fails","CLOSED","nabokihms","zuzzas","enhancement","v1.26.0","2021-09-01","2021-09-27",1,0,0,4
+118,"Service "".spec.loadBalancerSourceRanges"" has no effect in the AWS cloud while creating or updating NLBs","CLOSED","zuzzas","zuzzas","bug","v1.26.0","2021-09-01","2021-09-17",2,0,0,3
+119,"[dhctl] Saving terraform state in cache with StateSaver in bootstrap, abort and destroy","CLOSED","name212","","refactoring","v1.27.0","2021-09-01","2021-11-15",1,0,0,4
+120,"[dhctl] Remove tomb callbacks after normally execution","OPEN","name212","","bug",,"2021-09-01","",0,0,0,1
+121,"[flant-integration] Add abbility to disable madisonAlerts","CLOSED","gyrter","31337Ghost","enhancement","v1.26.0","2021-09-02","2021-09-17",1,0,0,4
+122,"[log-shipper] Vector has big reloading interval under high load ","OPEN","gyrter","","enhancement",,"2021-09-02","",0,0,0,2
+123,"[log-shipper] Vector patches need refactoring","OPEN","gyrter","","enhancement",,"2021-09-02","2021-11-17",1,0,0,2
+124,"[log-shipper] filter logs","CLOSED","nabokihms","gyrter","enhancement","v1.26.0","2021-09-02","2021-09-17",1,0,0,3
+125,"[log-shipper] Inject labels from message","CLOSED","nabokihms","gyrter","enhancement","v1.26.0","2021-09-02","2021-09-27",1,0,0,4
+126,"Use container registry to distribute required software on Kubernetes nodes","CLOSED","konstantin-axenov","RomanenkoDenys","enhancement","v1.25.0","2021-09-02","2021-09-10",1,0,0,2
+127,"[log-shipper] Multiline","CLOSED","nabokihms","gyrter","enhancement",,"2021-09-02","",0,0,0,3
+128,"Add vSphere to Getting Started","CLOSED","konstantin-axenov","zuzzas","","v1.26.0","2021-09-02","2021-10-01",1,0,0,4
+129,"[upmeter] Golang refactoring","CLOSED","nabokihms","shvgn","refactoring","v1.26.0","2021-09-02","2021-10-19",1,0,0,3
+130,"[prometheus-metrics-adapter] Golang refactoring","CLOSED","nabokihms","name212","refactoring","v1.26.0","2021-09-02","2021-10-19",1,0,0,3
+131,"[global] Migrate to go 1.16","CLOSED","nabokihms","diafour","refactoring","v1.26.0","2021-09-02","",0,0,0,4
+132,"[deckhouse] Improve startup speed","CLOSED","nabokihms","yalosev","bug","v1.26.0","2021-09-02","2021-09-27",1,0,0,3
+133,"[cert-manager] Default issuer is not configured","CLOSED","gyrter","gyrter","enhancement","v1.26.0","2021-09-02","",0,0,0,3
+134,"CIS Benchmark","CLOSED","yalosev","RomanenkoDenys","","v1.26.0","2021-09-03","2021-10-19",1,0,0,4
+135,"K8s FakeClient: RestClient is absent","OPEN","yalosev","","enhancement",,"2021-09-03","",0,0,0,2
+136,"[cert-manager] Add liveness probe to cert-manager Deployment and Webhook","CLOSED","konstantin-axenov","shvgn","bug","v1.26.0","2021-09-03","2021-09-27",1,0,0,3
+137,"[deckhouse] Installation on managed Kubernetes","OPEN","Nitive","z9r5","enhancement","v1.29.0","2021-09-05","2021-10-01",1,7,0,8
+138,"Provide a friendly UX for offline PVC resize","OPEN","31337Ghost","","enhancement",,"2021-09-06","",0,0,0,2
+139,"[prometheus] expose Prometheus external labels (instance and replica name) at least for remote_writes ","OPEN","31337Ghost","","enhancement",,"2021-09-06","2021-09-23",1,2,0,3
+140,"[ingress-istio] native ingress module for istio","OPEN","apolovov","","feature-request",,"2021-09-06","",0,0,0,2
+141,"[docs][monitoring] Translate and refactor alerts and dashboards content","CLOSED","z9r5","z9r5","enhancement",,"2021-09-06","2021-10-19",2,0,0,2
+142,"[node-manager] Get rid of node_lease_handler hook","CLOSED","apolovov","RomanenkoDenys","enhancement","v1.27.0","2021-09-07","2021-11-18",1,0,0,4
+143,"[bashible] render bootstrap with bashible-apiserver","OPEN","RomanenkoDenys","","enhancement",,"2021-09-08","",0,0,0,2
+144,"[kubernetes-api-proxy] refactor to haproxy with health checks and circuit breaker","OPEN","31337Ghost","","refactoring",,"2021-09-08","",0,0,0,2
+145,"[log-shipper] Add VPA limit for vector-agent","CLOSED","gyrter","gyrter","enhancement","v1.26.0","2021-09-08","2021-09-15",1,0,0,4
+146,"[docs][getting-started] Add ssh params for 'bootstrap-phase abort' command after release 1.25","CLOSED","name212","name212","enhancement","v1.27.0","2021-09-08","2021-11-18",1,0,0,3
+147,"[log-shipper] Vector can panic on config reload","OPEN","gyrter","","bug",,"2021-09-08","",0,0,0,2
+148,"[deckhouse] Provide the way to push all Deckhouse container images to custom registry","CLOSED","nabokihms","name212","feature-request","v1.26.0","2021-09-09","2021-10-22",1,0,0,4
+149,"[deckhouse] Updating process","OPEN","nabokihms","","epic",,"2021-09-09","",0,0,0,1
+150,"[deckhouse] Add update windows","CLOSED","nabokihms","yalosev","enhancement","v1.26.0","2021-09-09","2021-09-17",1,0,0,3
+151,"[deckhouse] Custom changelog","CLOSED","nabokihms","shvgn","enhancement","v1.27.0","2021-09-09","2021-11-18",1,0,0,3
+152,"Change KubeEtcdHighNumberOfFailedProposals query?","CLOSED","duckhawk","","enhancement",,"2021-09-09","2021-11-09",2,2,0,5
+154,"ServiceMonitors for Grafana and Prometheus do not get created","CLOSED","Nitive","nabokihms","bug","v1.26.0","2021-09-10","2021-09-15",2,3,0,4
+155,"[web] Perform SEO and security site audit. Fix issues","OPEN","z9r5","z9r5","enhancement",,"2021-09-10","2021-09-28",2,0,0,2
+156,"[linter] Check for non-Latin letters in English docs","OPEN","z9r5","","enhancement",,"2021-09-10","",0,0,0,2
+157,"[web] General FAQ","OPEN","z9r5","","enhancement",,"2021-09-10","2021-09-28",2,0,0,3
+158,"[web][getting-started] The installation page should not be reloaded after entering an EE token","CLOSED","z9r5","z9r5","bug","v1.26.0","2021-09-12","2021-09-22",1,0,0,3
+159,"[web][getting-started] Fix the application of the DNS template","CLOSED","z9r5","z9r5","bug","v1.26.0","2021-09-13","2021-09-17",1,0,0,2
+160,"[web] Show .status structure description on the CRD page","OPEN","z9r5","","enhancement",,"2021-09-13","",0,0,0,2
+161,"[web] Select the default site language based on the user's geodata","CLOSED","z9r5","z9r5","enhancement","v1.26.0","2021-09-13","2021-09-22",1,0,0,3
+162,"[linter][web] Check CRD links format","OPEN","z9r5","","enhancement",,"2021-09-13","",0,0,0,2
+163,"[linter][monitoring] check prometheus rules","OPEN","31337Ghost","","enhancement",,"2021-09-13","",0,0,0,3
+164,"[cloud-provider-aws] gp3 volume type support","CLOSED","konstantin-axenov","31337Ghost","","v1.26.0","2021-09-13","2021-09-15",1,0,0,2
+165,"[global] Validating admission webhooks for custom taints","CLOSED","nabokihms","gyrter","enhancement","v1.26.0","2021-09-13","",0,0,0,3
+166,"We need a way to accurately identify all the alerts about futher feature deprecation","OPEN","EvgenySamoylov","","enhancement",,"2021-09-13","",0,0,0,2
+167,"Update kernel to the latest version. Implement automated tracking for new Linux distribution package versions.","OPEN","zuzzas","","feature-request",,"2021-09-14","",0,0,0,1
+168,"[log-shipper] Add user-authz role mappings for log-shipper CRD","CLOSED","gyrter","","enhancement","v1.26.0","2021-09-14","2021-09-23",1,0,0,2
+169,"[upmeter] Limit agent serviceaccount to access only required resources","OPEN","shvgn","shvgn","enhancement",,"2021-09-14","",0,0,0,2
+170,"[upmeter] Authenticate agent using client certificate","OPEN","shvgn","shvgn","enhancement",,"2021-09-14","",0,0,0,2
+171,"[flant-integration] Madison proxy must be restarted after madisonAuthKey updates","CLOSED","konstantin-axenov","","bug",,"2021-09-14","2021-09-14",1,0,0,1
+172,"[deckhouse-web] Crosslinks should be relative","CLOSED","z9r5","z9r5","enhancement","v1.26.0","2021-09-14","2021-09-14",1,0,0,1
+173,"[web] Show supported K8s and Linux versions","CLOSED","z9r5","","enhancement",,"2021-09-14","2021-09-20",1,0,0,2
+174,"Documentation of file location of Step 5 Bare Metal Installation","CLOSED","smilebasti","","",,"2021-09-14","",0,0,0,2
+176,"Manage kernel install on bootstrap","OPEN","RomanenkoDenys","","enhancement",,"2021-09-15","",0,0,0,2
+177,"[docs] Update the release process description","OPEN","z9r5","","refactoring",,"2021-09-15","",0,0,0,2
+178,"Dashboard throughs only errors after installation and Unauthorized","OPEN","smilebasti","nabokihms","bug",,"2021-09-15","2021-09-16",6,0,0,2
+179,"[linter][docs] Show more info in documentation linters","OPEN","z9r5","","enhancement",,"2021-09-15","",0,0,0,1
+180,"[linter][docs] Check words on a block list","OPEN","z9r5","","enhancement",,"2021-09-15","",0,0,0,1
+181,"[dhctl] Consider checking cloud quotas before beginning an installation procedure","OPEN","zuzzas","","feature-request",,"2021-09-16","2021-09-17",1,0,0,2
+182,"Debug deckhouse controller","OPEN","zuzzas","","feature-request",,"2021-09-16","",0,0,0,1
+183,"Local Helm tests do not work","OPEN","zuzzas","","bug",,"2021-09-16","",0,0,0,1
+184,"[go_lib] implement general generate_admission_webhook_cert hook","OPEN","31337Ghost","","feature-request",,"2021-09-16","2021-09-16",1,0,0,3
+185,"[deckhouse] Update mechanics","CLOSED","yalosev","yalosev","enhancement","v1.26.0","2021-09-16","",0,0,0,3
+186,"[tests] Openapi case tests don't work with x-required-for-helm","OPEN","name212","","bug",,"2021-09-16","",0,0,0,1
+187,"[deckhouse][helm] handle ""has no deployed releases"" helm error","OPEN","31337Ghost","","bug",,"2021-09-16","2021-09-20",1,1,0,3
+188,"[istio] switching off istio module doesn't remove iop resource","OPEN","apolovov","","bug",,"2021-09-17","2021-11-19",1,0,0,3
+189,"[user-authn] Protect wildcard domains with DexAuthenticator","CLOSED","EvgeniiAl","yalosev","bug","v1.26.0","2021-09-17","2021-09-28",2,0,0,3
+190,"[monitoring][grafana] Need to add WebSocket dashboards.","OPEN","SpecialForce3331","","feature-request",,"2021-09-20","",0,4,0,6
+191,"[docs] Documentation versioning","OPEN","z9r5","","",,"2021-09-20","",0,0,0,1
+192,"[docs] Getting started for bare metal doesn't contain info how to apply files on the finishing installation step","CLOSED","z9r5","z9r5","","v1.26.0","2021-09-20","2021-09-21",1,0,0,1
+193,"[ingress-nginx] HostPortWithFailover bug with failover controller","CLOSED","yalosev","","bug","v1.26.0","2021-09-21","2021-09-27",1,0,0,3
+194,"[bashible] install registry packages fails, if registryDockerCFG in old format","OPEN","RomanenkoDenys","","bug",,"2021-09-21","",0,0,0,2
+195,"[site] Generate sidebar menu  automatically","OPEN","z9r5","z9r5","enhancement",,"2021-09-21","",0,0,0,1
+196,"Do not evict Pods with PVCs that have ""kubernetes.io/no-provisioner"" or other types of local provisioners ","OPEN","zuzzas","","feature-request",,"2021-09-22","",0,0,0,1
+197,"[deckhouse][helm] handle ""another operation is in progress"" helm error","OPEN","31337Ghost","","bug",,"2021-09-22","",0,2,0,3
+198,"[vertical-pod-autoscaler] Bump CRD version to v1","CLOSED","RomanenkoDenys","","enhancement",,"2021-09-22","2021-11-17",1,0,0,3
+199,"[monitoring-kubernetes] Incorrect values in Grafana Main tables","OPEN","konstantin-axenov","","",,"2021-09-22","2021-10-19",1,0,0,3
+200,"[cloud-provider-aws] csi-controller not reacts on AWSClusterConfiguration provider credentials change","OPEN","31337Ghost","","bug",,"2021-09-23","",0,2,0,4
+201,"[pod-reloader] New module","CLOSED","nabokihms","gyrter","feature-request",,"2021-09-24","",0,0,0,2
+203,"[cert-manager] Acme solver registry secret does not update if deckhouse registry was changed","CLOSED","name212","name212","bug","v1.26.0","2021-09-24","2021-09-28",1,0,0,3
+204,"[user-authn] ingress limit-rpm leads to unclear IngressResponses5xx alerts","CLOSED","31337Ghost","31337Ghost","enhancement","v1.26.0","2021-09-24","2021-11-15",2,2,0,5
+205,"change cri type for single-master installations","CLOSED","RomanenkoDenys","RomanenkoDenys","enhancement","v1.28.0","2021-09-24","2021-12-02",1,0,0,3
+206,"[cni-cilium] New module","OPEN","konstantin-axenov","zuzzas","","v1.29.0","2021-09-27","",0,0,0,3
+207,"Adding portainer to deckhouse installer","OPEN","balasu","","feature-request",,"2021-09-28","",0,0,0,2
+210,"[grafana] Kubernetes Cluster / Control Plane Status panel dont work as expected","CLOSED","RomanenkoDenys","RomanenkoDenys","bug","v1.27.0","2021-09-28","2021-11-18",2,0,0,4
+211,"[grafana] In Namespaces (perhaps, others from the same folder) dashboard, resource calculation in the top table is performed over whole time period","OPEN","zuzzas","","enhancement",,"2021-09-29","",0,2,0,4
+212,"Bump Grafana version to 8.1.x","CLOSED","1001v","diafour","enhancement","v1.27.0","2021-09-29","2021-11-22",1,1,0,6
+213,"[user-authn][kubeconfig-generator] Don't append server CA for public certificate providers","CLOSED","apolovov","","bug",,"2021-09-30","2021-10-19",2,1,0,3
+214,"[node-manager][standby-holder] Holder is being deployed if minPerZone == maxPerZone","OPEN","apolovov","","bug",,"2021-09-30","2021-10-05",1,0,0,3
+215,"[site] Add detailed comparison table of revisions","OPEN","z9r5","","enhancement",,"2021-10-01","",0,0,0,1
+216,"[site][getting-started] Existing cluster","CLOSED","z9r5","","enhancement",,"2021-10-01","2021-11-09",1,1,0,3
+217,"[bashible] ntp sync in all nodes","CLOSED","alexey-gavrilov-flant","RomanenkoDenys","enhancement","v1.27.0","2021-10-01","2021-11-18",3,11,0,15
+218,"[aws] Consider using Load Balancer Controller","OPEN","zuzzas","","refactoring",,"2021-10-04","",0,0,0,2
+219,"[Upmeter] Fix smoke-mini image on failing pods","OPEN","shvgn","","bug",,"2021-10-04","",0,0,0,2
+220,"[user-authn] Do not use colons in DexClient ids","CLOSED","nabokihms","","bug","v1.27.0","2021-10-05","2021-11-15",1,0,0,3
+221,"[deckhouse] in-cluster registry cache for deckhouse and control-plane images","OPEN","31337Ghost","","feature-request",,"2021-10-05","",0,0,0,2
+222,"[node-manager] [standby-holder] implement calculation of the number of resources that standby-holder shouldn't hold","OPEN","31337Ghost","","enhancement",,"2021-10-05","2021-12-14",2,15,0,17
+223,"Prometheus Kubernetes target discovery cache sometimes gets stale","OPEN","zuzzas","","bug",,"2021-10-06","",0,0,0,1
+224,"node-local-dns and log-shipper modules have alerts that duplicate those found in the extended-monitoring","OPEN","zuzzas","","bug",,"2021-10-07","",0,0,0,1
+225,"NodeGroup .spec.cri is not obvious","OPEN","yalosev","","bug",,"2021-10-07","",0,0,0,2
+226,"cannot login to any dex-authed endpoints after cluster bootstrap","CLOSED","andycmaj","nabokihms","bug","v1.26.0","2021-10-07","2021-11-03",5,0,0,3
+227,"[prometheus] HTTPS and FQDN support for additional alertmanager","CLOSED","alexeybobylev","yalosev","feature-request","v1.27.0","2021-10-08","2021-11-22",2,4,0,9
+228,"Add ability to specify certManager credentials as Secrets","OPEN","a-morgunenko","","enhancement",,"2021-10-11","",0,0,0,2
+229,"[node-manager] Add max surge parameter to NodeGroup spec","CLOSED","nabokihms","yalosev","feature-request","v1.27.0","2021-10-11","2021-11-18",1,0,0,3
+230,"[deckhouse] consistent updates through versions","OPEN","31337Ghost","","enhancement",,"2021-10-12","2021-10-18",1,0,0,2
+231,"[user-authz] ClusterAuthorizationRules validation webhook","OPEN","nabokihms","","enhancement",,"2021-10-14","",0,0,0,1
+232,"Linux kernel 5.x support for CentOS 7","OPEN","mobilesfinks","","feature-request",,"2021-10-16","2021-10-17",1,0,0,2
+233,"[cloud-provider- *] implement cloud quotas exporter","OPEN","31337Ghost","","enhancement",,"2021-10-18","",0,1,0,2
+234,"[cloud-provider-yandex] implement YandexInstanceClass validating","OPEN","31337Ghost","","enhancement",,"2021-10-18","",0,0,0,2
+235,"[deckhouse] mute alerts about deckhouse pod during the release upgrade","OPEN","31337Ghost","","enhancement",,"2021-10-18","",0,0,0,2
+236,"[modules] add an annotation to component's controllers containing used software version","OPEN","31337Ghost","","enhancement",,"2021-10-18","",0,0,0,2
+237,"[cloud-provider-*] fire an alert if ccm reconcile failed","OPEN","31337Ghost","","enhancement",,"2021-10-18","",0,0,0,2
+238,"Ошибка выпуска сертификата на baremetal ноде","OPEN","mobilesfinks","","",,"2021-10-18","",0,0,0,1
+239,"[node-manager] Nodes update windows","CLOSED","nabokihms","yalosev","enhancement","v1.26.0","2021-10-18","2021-11-16",1,0,0,2
+240,"[monitoring][grafana-dashboards] New dashboard definition format — CR rendering","OPEN","apolovov","","enhancement",,"2021-10-18","",0,0,0,2
+241,"[monitoring][grafana-dashboards] New dashboard definition format — CR implementing","OPEN","apolovov","","enhancement",,"2021-10-18","",0,0,0,1
+242,"[ingress-nginx] allow additional inlet ports","OPEN","31337Ghost","","enhancement",,"2021-10-19","",0,15,0,16
+243,"[node-manager] Nodes annotations are not synced with node group template annotations","OPEN","konstantin-axenov","","bug",,"2021-10-19","",0,2,0,3
+244,"[node-manager] approvalMode Automatic is broken","OPEN","konstantin-axenov","","bug",,"2021-10-20","",0,0,0,1
+245,"[prometheus] Grafana notification channels provisioning","OPEN","nabokihms","name212","feature-request","v1.29.0","2021-10-21","2021-12-07",3,7,0,10
+246,"[docs] How do I upgrade a cluster version?","OPEN","z9r5","","",,"2021-10-22","",0,0,0,1
+247,"[cloud-provider-*] add support for natgw in each zone of multiAZ installations","OPEN","khamadiev","","feature-request",,"2021-10-22","2021-12-02",1,13,0,15
+248,"[Upmeter] Agent fails to calculate probe status series due to different probe periods","CLOSED","shvgn","shvgn","bug","v1.27.0","2021-10-26","",0,0,0,3
+249,"[Upmeter] ""limit reached"" error in status series calculation for smoke-mini DNS probe","OPEN","shvgn","shvgn","bug",,"2021-10-26","",0,0,0,2
+250,"[Upmeter] In smoke-mini resheduler hook consider ""no smoke-mini StatefulSet chosen"" not to be an error","CLOSED","shvgn","shvgn","","v1.26.0","2021-10-26","",0,0,0,2
+251,"[terraform-manager] D8TerraformStateExporterHasErrors never alerts","OPEN","apolovov","","bug",,"2021-10-26","",0,0,0,2
+252,"[monitoring-kubernetes-control-plane] provide a useful dashboard to investigate apiserver abnormal load","OPEN","31337Ghost","","feature-request",,"2021-10-26","",0,0,0,2
+253,"[Upmeter] Probe garbage collection affects probe statuses and logs erros","CLOSED","shvgn","shvgn","bug","v1.27.0","2021-10-27","",0,0,0,3
+254,"[log-shipper] Problems with CRD.","CLOSED","gyrter","","",,"2021-10-27","",0,0,0,1
+255,"[log-shipper] Logs stuck after upgrade to actual vector","CLOSED","gyrter","gyrter","bug","v1.26.0","2021-10-27","2021-12-02",4,1,0,4
+256,"[global-hooks][deckhouse_registry] confusing values path","OPEN","apolovov","","bug",,"2021-10-27","",0,0,0,2
+257,"[containerd] reduce logging severity level","OPEN","31337Ghost","","enhancement",,"2021-10-28","",0,0,0,2
+258,"Save new and edited dashboards from Grafana to CRDs","OPEN","zuzzas","","feature-request",,"2021-10-28","",0,0,0,1
+261,"[benchmark-reports] implement a way to run benchmarks in the cluster","OPEN","31337Ghost","","feature-request",,"2021-10-29","",0,0,0,2
+262,"Support custom CAs in the image-availability-exporter","OPEN","zuzzas","","feature-request",,"2021-11-01","",0,0,0,1
+263,"Bootstrap does not disable swap on static cluster","OPEN","name212","","",,"2021-11-01","",0,0,0,2
+264,"Fix draining procedure if only a single ""deckhouse.io=system` is present","OPEN","zuzzas","","bug",,"2021-11-01","",0,0,0,1
+265,"[node-manager] Add static nodegroup example","CLOSED","gyrter","gyrter","","v1.27.0","2021-11-01","",0,0,0,3
+266,"[bashible] Some system does not include lsb_release binary","CLOSED","gyrter","RomanenkoDenys","","v1.27.0","2021-11-02","2021-11-18",2,0,0,4
+267,"Update CSI components to the latest version, consider implementing dependency update tracking","OPEN","zuzzas","","feature-request",,"2021-11-03","",0,0,0,2
+268,"Implement Userspace OOM killer","OPEN","zuzzas","zuzzas","feature-request","v1.29.0","2021-11-03","",0,0,0,2
+269,"[log-shipper] Extend namespace selector for ClusterLoggingConfig","OPEN","gyrter","","feature-request",,"2021-11-05","2021-11-24",1,13,0,15
+270,"[docs][getting started] Refresh password","OPEN","z9r5","","",,"2021-11-08","",0,0,0,1
+271,"[docs] Render object in an example field of an open API schema in YAML","OPEN","z9r5","","",,"2021-11-08","",0,0,0,1
+272,"Panic on `dhctl bootstrap` command","OPEN","name212","","bug",,"2021-11-08","",0,0,0,2
+273,"[ingress-nginx] add the ability to set a default certificate","OPEN","alexey-gavrilov-flant","31337Ghost","feature-request","v1.29.0","2021-11-09","2021-11-18",1,20,0,24
+274,"Remove the old nginx-ingress module from the codebase","CLOSED","EvgenySamoylov","nabokihms","refactoring","v1.28.0","2021-11-09","2021-12-09",1,0,0,2
+275,"Add ability to disable log-shipper for node group","OPEN","duckhawk","","feature-request",,"2021-11-09","",0,1,0,3
+276,"[node-manager] Require cloudInstances section for CloudEphemeral nodes in NodeGroup","CLOSED","vitaliy-sn","vitaliy-sn","","v1.28.0","2021-11-10","2021-12-02",1,0,0,3
+277,"[log-shipper] Generated config can contain same names for sources and sinks","CLOSED","gyrter","","","v1.27.0","2021-11-11","2021-11-11",2,1,0,3
+278,"[docs] Include common info about how to enable/disable module into a configuration page of a module","OPEN","z9r5","","",,"2021-11-12","",0,0,0,1
+279,"[dhctl] check if a newer dhctl version is available during pre-flight before the bootstrap","OPEN","31337Ghost","","enhancement",,"2021-11-12","",0,0,0,2
+280,"[log-shipper] Extend FAQ section in docs","CLOSED","gyrter","","",,"2021-11-12","2021-11-24",1,1,0,3
+281,"[Upmeter] Smoke-mini pods pending because the resheduler hook does not delete PVC when zone changes","OPEN","shvgn","shvgn","bug","v1.29.0","2021-11-13","",0,0,0,3
+282,"[log-shipper] Elasticsearch supper broken","CLOSED","gyrter","","","v1.26.0","2021-11-15","2021-11-16",1,0,0,2
+283,"[extended-monitoring] CronJobFailed when it hasn't been failed","OPEN","apolovov","","bug",,"2021-11-15","",0,0,0,1
+284,"[kubernetes] Scale to zero","OPEN","nabokihms","","feature-request",,"2021-11-16","",0,9,0,11
+297,"[log-shipper] connective graylog + log-shipper through logstash","OPEN","ruslangizatulin-flant","","",,"2021-11-16","2021-11-16",1,0,0,2
+298,"[getting started] Add config validation","CLOSED","gyrter","z9r5","","v1.28.0","2021-11-17","2021-11-22",1,0,0,4
+299,"[prometheus-metrics-adapter] scrape its metrics","OPEN","31337Ghost","","",,"2021-11-17","",0,0,0,1
+300,"[docs] Update article ""How does the mechanism of automatic stabilization of the release channel work""","OPEN","z9r5","","",,"2021-11-17","",0,0,0,1
+302,"To build tools images for basible on CI","OPEN","EvgenySamoylov","RomanenkoDenys","feature-request","v1.29.0","2021-11-18","",0,0,0,2
+303,"Add support of the Kubernetes 1.22","OPEN","EvgenySamoylov","31337Ghost","","v1.29.0","2021-11-18","",0,2,0,4
+304,"[ceph-csi] New module","OPEN","nabokihms","vitaliy-sn","feature-request","v1.29.0","2021-11-18","",0,0,0,3
+305,"[control-plane-manager] Add authentication webhook support","OPEN","nabokihms","name212","feature-request","v1.29.0","2021-11-18","",0,0,0,3
+306,"[dhctl][deckhouse] Use same deployment template for `dhctl bootstrap` and 020-deckhouse module ","OPEN","name212","","enhancement",,"2021-11-19","",0,1,0,2
+307,"[flant-integration] export metrics about Istio module","OPEN","31337Ghost","","",,"2021-11-19","",0,0,0,1
+313,"[argocd] New module","OPEN","nabokihms","","feature-request",,"2021-11-23","",0,0,0,1
+314,"[Upmeter] Web pages upmeter.* and status.* load slowly","OPEN","shvgn","shvgn","",,"2021-11-23","",0,0,0,2
+315,"[Upmeter] Fix agent memory leak","CLOSED","shvgn","shvgn","bug","v1.27.0","2021-11-23","2021-12-02",1,0,0,2
+316,"[descheduler] Flexible tuning of pods filters","OPEN","konstantin-axenov","","feature-request",,"2021-11-23","",0,0,0,1
+317,"Modify layout for AWS with bastion instance, so that it allows SSH to cluster only from the bastion host","OPEN","zuzzas","","feature-request",,"2021-11-24","",0,0,0,1
+318,"[log-shipper] Add debug log setting","OPEN","gyrter","","",,"2021-11-24","",0,0,0,1
+319,"[prometheus-custom] prometheus organizes scrape target for every container in Pod with prometheus.deckhouse.io/port annotation","CLOSED","apolovov","nabokihms","",,"2021-11-24","2021-12-02",2,0,0,3
+320,"[user-authz][webhook] Regression: resource apiextensions.k8s.io//customresourcedefinitions is not found in cluster","CLOSED","apolovov","name212,nabokihms","bug",,"2021-11-25","2021-12-06",1,0,0,4
+321,"[node-manager] Allow tuning kubelet's ""allowedUnsafeSysctls""","OPEN","zuzzas","","feature-request",,"2021-11-26","",0,0,0,1
+322,"[ingress-nginx] Allow changing ""log_format""","CLOSED","zuzzas","yalosev","feature-request","v1.29.0","2021-11-26","2021-12-10",2,0,0,4
+323,"[openvpn] Dynamic routes for nodes","OPEN","gyrter","","",,"2021-11-29","",0,0,0,1
+324,"[prometheus] Does not use new certificates from prometheus-scraper-tls without restarting the pod","OPEN","vitaliy-sn","","bug",,"2021-11-29","",0,0,0,1
+325,"[log-shipper] Add ability to use datastream for elasticsearch","CLOSED","gyrter","yalosev","","v1.29.0","2021-11-29","",0,12,0,14
+326,"[site] Improve site search","OPEN","z9r5","","",,"2021-11-29","",0,1,0,1
+327,"[cloud-provider-aws] EBS encryption","OPEN","vitaliy-sn","","feature-request",,"2021-11-30","",0,0,0,1
+328,"[Yandex Cloud Provider] Add a setting for CPU generation","OPEN","shvgn","","enhancement",,"2021-11-30","",0,0,0,2
+329,"[user-authn] Host Aliases for kube-api server may be overridden","OPEN","nabokihms","","bug",,"2021-11-30","2021-12-08",1,0,0,1
+330,"[global] Values refactoring","OPEN","nabokihms","","enhancement",,"2021-12-01","",0,0,0,1
+331,"[deckhouse] Add custom changelog to releases","OPEN","nabokihms","yalosev","enhancement",,"2021-12-01","",0,0,0,2
+332,"[deckhouse] Canary updating","OPEN","nabokihms","yalosev","feature-request","v1.29.0","2021-12-01","2021-12-01",2,0,0,3
+333,"Enrich master nodegroup scaling docs","OPEN","evstratbg","z9r5","enhancement",,"2021-12-01","2021-12-08",1,0,0,3
+334,"[monitoring-kubernetes] Incorrect VPA coverage of controllers in namespace on namespaces dashboard","OPEN","konstantin-axenov","","bug",,"2021-12-01","",0,1,0,3
+335,"[candi] kubelet fails to start several times after node reboot","OPEN","konstantin-axenov","","bug",,"2021-12-02","",0,0,0,2
+336,"[bashible] Docker face slapper (pods stuck in terminating)","OPEN","nabokihms","","enhancement",,"2021-12-03","",0,0,0,1
+337,"[control-plane-manager] Default audit policy","OPEN","nabokihms","31337Ghost","enhancement",,"2021-12-06","",0,0,0,2
+338,"[user-authn] Google provider support","OPEN","nabokihms","","feature-request",,"2021-12-06","",0,0,0,2
+340,"[deckhouse] Increase pending releases alert severity based on their quantity","OPEN","nabokihms","yalosev","enhancement",,"2021-12-07","",0,0,0,2
+341,"[bashible]kubernetes-data mount issues","OPEN","apolovov","apolovov","bug","v1.29.0","2021-12-07","",0,0,0,2
+344,"Release v1.29.0","OPEN","diafour","","","v1.29.0","2021-12-08","2021-12-15",34,0,0,2
+345,"[user-authn] Split dex certificate into two","OPEN","nabokihms","","enhancement",,"2021-12-09","",0,0,0,2
+346,"[ingress-nginx] No metrics for locations which contains a number sign","OPEN","nabokihms","","bug",,"2021-12-09","",0,0,0,2
+347,"[upmeter] Let set node selector and tolerations to the server","CLOSED","shvgn","shvgn","","v1.29.0","2021-12-09","",0,0,0,3
+348,"[upmeter] Successful probe with unavailable prometheus","CLOSED","shvgn","shvgn","","v1.29.0","2021-12-09","",0,0,0,2
+360,"LocalPathProvisioner: Retain retention policy","OPEN","mac2000","","enhancement",,"2021-12-10","",0,1,0,2
+363,"proposal: [documentation] LocalPathProvisioner examples are not clear enough","OPEN","mac2000","","",,"2021-12-10","",0,0,0,1
+365,"[extended-monitoring] Alert about certificate expiration","OPEN","nabokihms","","feature-request",,"2021-12-10","",0,0,0,1
+373,"add Wireguard support","OPEN","31337Ghost","","",,"2021-12-12","",0,0,0,2
+386,"[extended-monitoring] Automatically set enabled labels on namespaces by regex","OPEN","nabokihms","kvaps","",,"2021-12-13","",0,1,0,3
+390,"[cert-manager] acme dns01 recursive nameservers","OPEN","yalosev","","",,"2021-12-13","",0,0,0,2
+396,"Troubleshooting doc for the log-shipper usage and configuration needed","OPEN","EvgenySamoylov","RomanenkoDenys","",,"2021-12-13","",0,0,0,2
+407,"[node-manager] Changing CRI from Containerd to NotManaged generates invalid kubelet config","OPEN","konstantin-axenov","","bug",,"2021-12-14","",0,0,0,1
+410,"[vertical-pod-autoscaler] Hook set_max_allowed triggers evictions on Deckhouse restart","OPEN","nabokihms","","",,"2021-12-15","",0,0,0,1
+413,"[dhctl] Prepare a new user-side command line tool","OPEN","kvaps","","feature-request",,"2021-12-15","2021-12-15",1,0,0,3
+414,"Add Makefile","OPEN","kvaps","","",,"2021-12-15","",0,1,0,2
