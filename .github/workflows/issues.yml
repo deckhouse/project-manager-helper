@@ -2,9 +2,10 @@ name: Publish
 on:
   workflow_dispatch:
   push:
-  schedule:
-    # Every hour
-    - cron: '1 * * * *'
+# This project is postponed (2021-12-16), so schedule is disabled.
+#  schedule:
+#    # Every hour
+#    - cron: '1 * * * *'
 jobs:
   dump-and-publish:
     runs-on: ubuntu-latest
@@ -50,7 +51,7 @@ jobs:
 
       - name: Save tmpdir for debugging
         uses: actions/upload-artifact@v2
-        #if: failure()
+        if: failure()
         with:
           name: issues-dump-files
           path: |

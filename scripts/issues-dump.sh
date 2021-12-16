@@ -2,7 +2,9 @@
 
 # Get info for all issues in Github repo.
 # https://docs.github.com/en/graphql/reference/objects#repository
-# 
+#
+
+# TODO: Keep tmpdir content of error to upload as artifact.
 
 set -eo pipefail
 
