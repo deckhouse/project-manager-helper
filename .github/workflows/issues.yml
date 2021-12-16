@@ -1,5 +1,6 @@
 name: Publish
-on: 
+on:
+  workflow_dispatch:
   push:
   schedule:
     # Every hour
