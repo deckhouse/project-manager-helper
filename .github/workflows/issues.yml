@@ -2,6 +2,7 @@ name: Publish
 on: 
   push:
   schedule:
+    # Every hour
     - cron: '1 * * * *'
 jobs:
   dump-and-publish:
@@ -15,35 +16,48 @@ jobs:
           REST_API_GITHUB_TOKEN: ${{secrets.ROBOT_TOKEN}}
         run: |
           set +e
-          _TMPDIR=$(pwd)/tmp.gh-pages.${GITHUB_RUN_ID}
-          echo use ${_TMPDIR}
 
+          _TMPDIR_NAME=tmp.gh-pages.${GITHUB_RUN_ID}
+          _TMPDIR=$(pwd)/${_TMPDIR_NAME}
           mkdir -p ${_TMPDIR}
+          echo "Use temp directory: ${_TMPDIR}"
+          echo "_TMPDIR_NAME=$_TMPDIR_NAME" >> ${GITHUB_ENV}
+          echo "_TMPDIR=$_TMPDIR" >> ${GITHUB_ENV}
 
-          date | tee ${_TMPDIR}/date.txt
+          date > ${_TMPDIR}/date.txt
+          echo "Date is: "$(cat ${_TMPDIR}/date.txt)
 
-          echo Run issues dump.
+          echo Dump issues into issues.csv...
 
-          time ./scripts/issues-dump.sh ${_TMPDIR}/issues.csv
-          
-          if [[ $? != "0" ]] ; then
+          if ! time ./scripts/issues-dump.sh ${_TMPDIR}/issues.csv ; then
+            echo "Error occured in issues-dump.sh, cat issues.csv:"
             cat ${_TMPDIR}/issues.csv
             exit 1
           fi
+
+          echo Done.
 
       - name: Publish CSV
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: gh-pages 
-          folder: tmp.gh-pages.${{ github.run_id }}
+          folder: ${{ env._TMPDIR_NAME }}
           single-commit: true
           token: ${{ secrets.ROBOT_TOKEN }}
           git-config-name: "deckhouse-BOaTswain"
           git-config-email: ${{ secrets.GIT_EMAIL }}
 
+      - name: Save tmpdir for debugging
+        uses: actions/upload-artifact@v2
+        #if: failure()
+        with:
+          name: issues-dump-files
+          path: |
+            ${{ env._TMPDIR_NAME }}
+
       - name: Cleanup
         if: always()
         run: |
-          _TMPDIR=./tmp.gh-pages.${GITHUB_RUN_ID}
-          rm -rf ${_TMPDIR}
-
+          if [[ -d ${_TMPDIR} ]] ; then
+            rm -rf ${_TMPDIR}
+          fi
